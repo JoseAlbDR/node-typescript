@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import diaryRouter from "./routes/diaries";
+import diagnoseRouter from "./routes/diagnoses";
 
 const allowedOrigins = ["*"];
 const options: cors.CorsOptions = {
@@ -19,6 +20,7 @@ app.get("/api/ping", (_req, res) => {
 });
 
 app.use("/api/diaries", diaryRouter);
+app.use("/api/diagnoses", diagnoseRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
