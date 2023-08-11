@@ -11,3 +11,9 @@ export interface DiaryEntry {
 }
 
 export type NonSensitiveDiaryEntry = Omit<DiaryEntry, "comment">;
+
+export type Diagnose = {
+  code: string;
+  name: string;
+  latin?: string;
+};
