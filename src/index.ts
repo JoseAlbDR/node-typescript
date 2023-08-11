@@ -4,7 +4,7 @@ import diaryRouter from "./routes/diaries";
 import diagnoseRouter from "./routes/diagnoses";
 import patientRouter from "./routes/patients";
 
-const allowedOrigins = ["*"];
+const allowedOrigins = ["http://localhost:3000"];
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
 };
