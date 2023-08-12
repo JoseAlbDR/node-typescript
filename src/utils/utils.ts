@@ -12,13 +12,27 @@ const parseComment = (comment: unknown): string => {
   return comment;
 };
 
+const isDate = (date: string): boolean => {
+  return Boolean(Date.parse(date));
+};
+
+const parseDate = (date: unknown): string => {
+  if (!date || !isString(date) || !isDate(date)) {
+    throw new Error("Incorrect or missing date:" + date);
+  }
+  return date;
+};
+
 export const toNewDiaryEntry = (object: unknown): NewDiaryEntry => {
   console.log(object);
+
+  const parsedComment = parseComment(object.comment);
+
   const newEntry: NewDiaryEntry = {
     weather: "cloudy",
     visibility: "great",
     date: "2023-1-1",
-    comment: "fake news",
+    comment: parsedComment,
   };
 
   return newEntry;
