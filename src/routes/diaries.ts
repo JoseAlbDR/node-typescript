@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import express from "express";
 import diaryService from "../services/diaryService";
 import { NewDiaryEntry } from "../types";
@@ -16,7 +17,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const newEntry: NewDiaryEntry = req.body as NewDiaryEntry;
+  const newEntry: NewDiaryEntry = req.body;
   const addedEntry = diaryService.addDiary(newEntry);
   res.json(addedEntry);
 });
